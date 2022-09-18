@@ -20,6 +20,8 @@ export class DemoComponent implements OnInit {
 
   scoreModel = {
           initialClef: { clefType: ClefType.G, line: -2 },
+          //initialKey: { accidental: -1, count: 4 },
+          initialKey: { accidental: 1, count: 7 },
           seq: {
               elements: 'c\'1 <c\' d\'>4 e\'2 e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
           }
