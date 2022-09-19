@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VertVarSizeGlyphs } from '../../../../jmusic-model/src/physical-view';
 import { ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
-import { NoteType, NoteDirection, StaffDef, ClefType } from '../../../../jmusic-model/src/model';
+import { NoteType, NoteDirection, StaffDef, ClefType, Time } from '../../../../jmusic-model/src/model';
 
 
 const lineWidth = 10;
@@ -22,9 +22,18 @@ export class DemoComponent implements OnInit {
           initialClef: { clefType: ClefType.G, line: -2 },
           //initialKey: { accidental: -1, count: 4 },
           initialKey: { accidental: 1, count: 7 },
-          seq: {
+          voices:[
+            {
+              noteDirection: NoteDirection.Down,
+              content: {
               elements: 'c\'1 <c\' d\'>4 e\'2 e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
-          }
+          }},
+          {
+            noteDirection: NoteDirection.Up,
+            content: {
+            elements: 'c\'\'2 e\'\'1 e\'\'4 g\'\'4'
+          }}
+          ]
       } as StaffDef;
 
   inputJson = { elements: [
@@ -75,6 +84,10 @@ export class DemoComponent implements OnInit {
   inputText: string;
 
   logicalModel: ScoreViewModel = {staves:[{
+    timeSlots: [
+      {
+          absTime: Time.newAbsolute(0, 1),
+
     objects: [
         {
             position: 1,
@@ -86,11 +99,23 @@ export class DemoComponent implements OnInit {
             noteType: NoteType.NWhole,
             direction: NoteDirection.Up
         },
+      ]
+    },
+    {
+        absTime: Time.newAbsolute(1, 1),
+        objects: [
+
         {
             positions: [-5, -3, 0],
             noteType: NoteType.NQuarter,
             direction: NoteDirection.Up
         },
+      ]
+    },
+    {
+        absTime: Time.newAbsolute(5, 4),
+        objects: [
+
         {
             positions: [-4, -2, 0, 3],
             noteType: NoteType.NHalf,
@@ -98,6 +123,6 @@ export class DemoComponent implements OnInit {
         }
     ]
   }]
-};
+}]};
 
 }
