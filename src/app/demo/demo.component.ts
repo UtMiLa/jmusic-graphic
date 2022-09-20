@@ -20,7 +20,7 @@ export class DemoComponent implements OnInit {
 
   scoreModel = {
           initialClef: { clefType: ClefType.G, line: -2 },
-          initialMeter: { count: 9, value: 16 },
+          initialMeter: { count: 9, value: 32 },
           initialKey: { accidental: 1, count: 7 },
           voices:[
             {
