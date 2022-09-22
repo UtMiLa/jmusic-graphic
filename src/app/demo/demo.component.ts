@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VertVarSizeGlyphs } from '../../../../jmusic-model/src/physical-view';
+import { HorizVarSizeGlyphs, VertVarSizeGlyphs } from '../../../../jmusic-model/src/physical-view';
 import { ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
 import { NoteType, NoteDirection, StaffDef, ClefType, Time } from '../../../../jmusic-model/src/model';
 
@@ -20,18 +20,18 @@ export class DemoComponent implements OnInit {
 
   scoreModel = {
           initialClef: { clefType: ClefType.G, line: -2 },
-          initialMeter: { count: 9, value: 32 },
+          initialMeter: { count: 32, value: 32 },
           initialKey: { accidental: 1, count: 7 },
           voices:[
             {
               noteDirection: NoteDirection.Down,
               content: {
-              elements: 'c\'1 <c\' d\'>4 e\'2 e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
+              elements: 'c\'1 <c\' d\'>4 e\'2.. e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
           }},
           {
             noteDirection: NoteDirection.Up,
             content: {
-            elements: 'c\'\'2 e\'\'1 e\'\'4 g\'\'4'
+            elements: 'c\'\'2. e\'\'1 r4 g\'\'4'
           }}
           ]
       } as StaffDef;
@@ -88,7 +88,21 @@ export class DemoComponent implements OnInit {
       glyph: 'flags.d3',
       position: { x: 90, y: 2 * lineWidth - 25 }
     },
+    {
+      glyph: 'dots.dot',
+      position: { x: 100, y: 2.5 * lineWidth }
+    },
+    {
+      glyph: 'rests.2',
+      position: { x: 110, y: 2 * lineWidth }
+    },
     { "element": 101, "length": -25, "position": { "x": 90, "y": 2 * lineWidth } },
+    {
+      element: HorizVarSizeGlyphs.Bar,
+      position: { x: 130, y: 0 },
+      length: 4 * lineWidth
+  },
+
 ] }
 
   inputText: string;
@@ -126,6 +140,7 @@ export class DemoComponent implements OnInit {
     },
     {
         absTime: Time.newAbsolute(5, 4),
+        bar: true,
         notes: [
 
         {
@@ -133,8 +148,20 @@ export class DemoComponent implements OnInit {
             noteType: NoteType.NHalf,
             direction: NoteDirection.Down
         }
+      ]
+    },
+    {
+      absTime: Time.newAbsolute(7, 4),
+      notes: [
+
+      {
+          positions: [],
+          noteType: NoteType.RHalf,
+          direction: NoteDirection.Down
+      }
     ]
-  }]
+    }
+  ]
 }]};
 
 }
