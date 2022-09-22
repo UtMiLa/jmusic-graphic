@@ -20,19 +20,21 @@ export class DemoComponent implements OnInit {
 
   scoreModel = {
           initialClef: { clefType: ClefType.G, line: -2 },
-          initialMeter: { count: 32, value: 32 },
-          initialKey: { accidental: 1, count: 7 },
+          initialMeter: { count: 6, value: 8, upBeat: Time.newSpan(1, 8) },
+          initialKey: { accidental: -1, count: 3 },
           voices:[
             {
+              noteDirection: NoteDirection.Up,
+              content: {
+              elements: "bes'8 bes'4 bes'8 aes'8 g'8 f'8 ees'4 g'8 f'4 bes8 g'8. g'16 aes'8 bes'8 c''8 bes'8 aes'4. g'4 bes'8"
+               //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
+            }},
+              {
               noteDirection: NoteDirection.Down,
               content: {
-              elements: 'c\'1 <c\' d\'>4 e\'2.. e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
+              elements: "d'8 ees'4 g'8 ees'4 d'8 ees'8 bes8 c'8 d'4 bes8 ees'2. ees'4 f'8 ees'4 ees'8"
+              //'c\'8 c\'4 c\'8 c\'8 c\'4 c\'4 <c\' d\'>4 e\'2.. e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
           }},
-          {
-            noteDirection: NoteDirection.Up,
-            content: {
-            elements: 'c\'\'2. e\'\'1 r4 g\'\'4'
-          }}
           ]
       } as StaffDef;
 
@@ -144,7 +146,7 @@ export class DemoComponent implements OnInit {
         notes: [
 
         {
-            positions: [-4, -2, 0, 3],
+            positions: [-8, -4, -2, 0, 3, 7],
             noteType: NoteType.NHalf,
             direction: NoteDirection.Down
         }
