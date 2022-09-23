@@ -18,6 +18,16 @@ export class DemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  updateModelView() {
+    this.scoreModel = {
+      ...this.scoreModel
+      /*initialClef: this.scoreModel.initialClef,
+      initialMeter: this.scoreModel.initialMeter,
+      initialKey: this.scoreModel.initialKey,
+      voices: this.scoreModel.voices*/
+    }
+  }
+
   scoreModel = {
           initialClef: { clefType: ClefType.G, line: -2 },
           initialMeter: { count: 6, value: 8, upBeat: Time.newSpan(1, 8) },

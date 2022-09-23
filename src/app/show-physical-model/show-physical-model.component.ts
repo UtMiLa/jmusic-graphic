@@ -31,7 +31,7 @@ export class ShowPhysicalModelComponent implements OnInit {
   scale: number = 1;
 
   ngAfterViewInit() {
-    console.log(this.scoreCanvas);
+    //console.log(this.scoreCanvas);
     this.render();
   }
 

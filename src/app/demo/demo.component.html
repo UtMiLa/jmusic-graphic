@@ -1,5 +1,10 @@
 <app-show-physical-model [model]="inputJson"></app-show-physical-model>
-
+<div>
+<input type="number" [(ngModel)]="scoreModel.initialMeter.count" (change)="updateModelView()"/>
+<input type="number" [(ngModel)]="scoreModel.initialMeter.value" (change)="updateModelView()"/>
+<textarea [(ngModel)]="scoreModel.voices[0].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+<textarea [(ngModel)]="scoreModel.voices[1].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+</div>
 <app-show-model [model]="scoreModel"></app-show-model>
 
 
