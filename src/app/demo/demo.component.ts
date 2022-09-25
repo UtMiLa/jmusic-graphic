@@ -21,10 +21,6 @@ export class DemoComponent implements OnInit {
   updateModelView() {
     this.scoreModel = {
       ...this.scoreModel
-      /*initialClef: this.scoreModel.initialClef,
-      initialMeter: this.scoreModel.initialMeter,
-      initialKey: this.scoreModel.initialKey,
-      voices: this.scoreModel.voices*/
     }
   }
 
@@ -36,13 +32,13 @@ export class DemoComponent implements OnInit {
             {
               noteDirection: NoteDirection.Up,
               content: {
-              elements: "bes'8 bes'4 bes'8 aes'8 g'8 f'8 ees'4 g'8 f'4 bes8 g'8. g'16 aes'8 bes'8 c''8 bes'8 aes'4. g'4 bes'8"
+              elements: "a'8 c''4. bes'8 r8 bes'8 ees''8. ees''16 d''8 c''8 g'8 aes'8 bes'8 c''8 aes'8 g'4 g'8 c''4 bes'8 aes'8 c'8 f'8 ees'4. d'4. ees'4.~ ees'4"
                //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
             }},
               {
               noteDirection: NoteDirection.Down,
               content: {
-              elements: "d'8 ees'4 g'8 ees'4 d'8 ees'8 bes8 c'8 d'4 bes8 ees'2. ees'4 f'8 ees'4 ees'8"
+              elements: "ees'8 ees'4. d'8 r8 bes'8 ees'4 aes'8 g'4 ees'8 f'8 c'8 d'8 ees'4 cis'8 c'4 cis'8 c'4 c'8 bes2. bes4.~ bes4"
               //'c\'8 c\'4 c\'8 c\'8 c\'4 c\'4 <c\' d\'>4 e\'2.. e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
           }},
           ]
@@ -94,24 +90,30 @@ export class DemoComponent implements OnInit {
     },
     {
       glyph: 'noteheads.s2',
-      position: { x: 90, y: 2 * lineWidth }
+      position: { x: 90, y: -1 * lineWidth }
+    },
+    {
+      glyph: 'noteheads.s2',
+      position: { x: 110, y: 2 * lineWidth }
     },
     {
       glyph: 'flags.d3',
-      position: { x: 90, y: 2 * lineWidth - 25 }
+      position: { x: 110, y: 2 * lineWidth - 25 }
     },
     {
       glyph: 'dots.dot',
-      position: { x: 100, y: 2.5 * lineWidth }
+      position: { x: 120, y: 2.5 * lineWidth }
     },
     {
       glyph: 'rests.2',
-      position: { x: 110, y: 2 * lineWidth }
+      position: { x: 130, y: 2 * lineWidth }
     },
-    { "element": 101, "length": -25, "position": { "x": 90, "y": 2 * lineWidth } },
+    { "element": 101, "length": 25, "position": { "x": 90+7, "y": -1 * lineWidth } },
+    { "element": 101, "length": -25, "position": { "x": 110, "y": 2 * lineWidth } },
+    { "element": VertVarSizeGlyphs.Tie, "length": 10, direction: NoteDirection.Up, "position": { "x": 80, "y": -1 * lineWidth - 3 } },
     {
       element: HorizVarSizeGlyphs.Bar,
-      position: { x: 130, y: 0 },
+      position: { x: 150, y: 0 },
       length: 4 * lineWidth
   },
 
@@ -142,6 +144,11 @@ export class DemoComponent implements OnInit {
     },
     {
         absTime: Time.newAbsolute(1, 1),
+        ties: [
+          { position: -5, direction: NoteDirection.Up },
+          { position: -3, direction: NoteDirection.Up },
+          { position: 0, direction: NoteDirection.Down }
+        ],
         notes: [
         {
             positions: [-5, -3, 0],

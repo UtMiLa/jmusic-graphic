@@ -35,6 +35,10 @@ export class ShowPhysicalModelComponent implements OnInit {
     this.render();
   }
 
+  get canvasHeight(): number {
+    return 70 * this.scale;
+  }
+
   render() {
     if (this.model) {
       renderOnCanvas(this.model, this.scoreCanvas.nativeElement, {
