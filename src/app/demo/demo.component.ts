@@ -163,11 +163,16 @@ export class DemoComponent implements OnInit {
         notes: [
 
         {
-            positions: [-8, -4, -2, 0, 3, 7],
+            positions: [-8, -4, -3, -2, -1],
             noteType: NoteType.NHalf,
             direction: NoteDirection.Down
-        }
-      ]
+        },
+        {
+          positions: [0, 2, 3, 4, 7],
+          noteType: NoteType.NHalf,
+          direction: NoteDirection.Up
+      }
+    ]
     },
     {
       absTime: Time.newAbsolute(7, 4),
