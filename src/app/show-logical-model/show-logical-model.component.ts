@@ -28,7 +28,7 @@ export class ShowLogicalModelComponent implements OnInit {
   settings =
   new StandardMetrics({
       staffLineWidth: 6,
-      staffLengthOffset: 10,
+
     });
 
   physical: PhysicalModel;

@@ -1,9 +1,9 @@
 <app-show-physical-model [model]="inputJson" [scale]="3"></app-show-physical-model>
 <div>
-<input type="number" [(ngModel)]="scoreModel.initialMeter.count" (change)="updateModelView()"/>
-<input type="number" [(ngModel)]="scoreModel.initialMeter.value" (change)="updateModelView()"/>
-<textarea [(ngModel)]="scoreModel.voices[0].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
-<textarea [(ngModel)]="scoreModel.voices[1].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+<input type="number" [(ngModel)]="scoreModel.staves[0].initialMeter.count" (change)="updateModelView()"/>
+<input type="number" [(ngModel)]="scoreModel.staves[0].initialMeter.value" (change)="updateModelView()"/>
+<textarea [(ngModel)]="scoreModel.staves[0].voices[0].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+<textarea [(ngModel)]="scoreModel.staves[0].voices[1].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
 </div>
 <app-show-model [model]="scoreModel"></app-show-model>
 
@@ -13,6 +13,5 @@
 <h3>Todo for at lave simple koraler:</h3>
 <ul>
   <li>accidentals</li>
-  <li>multiple staff</li>
   <li>1/8 og mindre, beams</li>
 </ul>

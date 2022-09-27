@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StaffDef } from '../../../../jmusic-model/src/model';
-import { modelToViewModel, ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
+import { ScoreDef, StaffDef } from '../../../../jmusic-model/src/model';
+import { staffModelToViewModel, ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
 
 @Component({
   selector: 'app-show-model',
@@ -14,15 +14,15 @@ export class ShowModelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  private _model: StaffDef;
+  private _model: ScoreDef;
   @Input()
-  public get model(): StaffDef {
+  public get model(): ScoreDef {
     return this._model;
   }
-  public set model(value: StaffDef) {
+  public set model(value: ScoreDef) {
     this._model = value;
     this.logicalModel = {
-      staves: [ modelToViewModel(value)]
+      staves: value.staves.map(staff => staffModelToViewModel(staff))
      };
   }
 
