@@ -30,13 +30,16 @@ export class ShowPhysicalModelComponent implements OnInit {
   @Input()
   scale: number = 1;
 
+  @Input()
+  staffCount: number = 1;
+
   ngAfterViewInit() {
     //console.log(this.scoreCanvas);
     this.render();
   }
 
   get canvasHeight(): number {
-    return 70 * this.scale * 2;
+    return 70 * this.scale * this.staffCount;
   }
 
   render() {

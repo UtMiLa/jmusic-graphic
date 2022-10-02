@@ -25,6 +25,9 @@ export class ShowLogicalModelComponent implements OnInit {
     this.physical = viewModelToPhysical(this._model, this.settings)
   }
 
+  @Input()
+  staffCount: number = 1;
+
   settings =
   new StandardMetrics({
       staffLineWidth: 6,
