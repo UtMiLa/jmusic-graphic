@@ -4,7 +4,7 @@ import { koral41 } from './../tests/koral41';
 import { accidentalTest } from './../tests/accidentalDisplacement';
 import { Component, OnInit } from '@angular/core';
 import { HorizVarSizeGlyphs, VertVarSizeGlyphs } from '../../../../jmusic-model/src/physical-view';
-import { ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
+import { FlagType, ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
 import { NoteType, NoteDirection, StaffDef, ClefType, Time } from '../../../../jmusic-model/src/model';
 
 
@@ -35,80 +35,7 @@ export class DemoComponent implements OnInit {
 
   scoreModel = koral41;
 
-  inputJson = physBeaming; /*{ elements: [
-    {
-        element: VertVarSizeGlyphs.Line,
-        position: { x: 0, y: 4 * lineWidth },
-        length: 130
-    },
-    {
-        element: VertVarSizeGlyphs.Line,
-        position: { x: 0, y: 3 * lineWidth },
-        length: 130
-    },
-    {
-        element: VertVarSizeGlyphs.Line,
-        position: { x: 0, y: 2 * lineWidth },
-        length: 130
-    },
-    {
-        element: VertVarSizeGlyphs.Line,
-        position: { x: 0, y: lineWidth },
-        length: 130
-    },
-    {
-        element: VertVarSizeGlyphs.Line,
-        position: { x: 0, y: 0 },
-        length: 130
-    },
-    {
-      glyph: 'clefs.G',
-        position: { x: 20, y: 1 * lineWidth  }
-    },
-    {
-      glyph: 'three',
-      //scale: 2,
-        position: { x: 50, y: 2 * lineWidth  }
-    },
-    {
-      glyph: 'four',
-      //scale: 2,
-        position: { x: 50, y: 0  }
-    },
-    {
-      glyph: 'noteheads.s0',
-      position: { x: 70, y: -1 * lineWidth }
-    },
-    {
-      glyph: 'noteheads.s2',
-      position: { x: 90, y: -1 * lineWidth }
-    },
-    {
-      glyph: 'noteheads.s2',
-      position: { x: 110, y: 2 * lineWidth }
-    },
-    {
-      glyph: 'flags.d3',
-      position: { x: 110, y: 2 * lineWidth - 25 }
-    },
-    {
-      glyph: 'dots.dot',
-      position: { x: 120, y: 2.5 * lineWidth }
-    },
-    {
-      glyph: 'rests.2',
-      position: { x: 130, y: 2 * lineWidth }
-    },
-    { "element": 101, "length": 25, "position": { "x": 90+7, "y": -1 * lineWidth } },
-    { "element": 101, "length": -25, "position": { "x": 110, "y": 2 * lineWidth } },
-    { "element": VertVarSizeGlyphs.Tie, "length": 10, direction: NoteDirection.Up, "position": { "x": 80, "y": -1 * lineWidth - 3 } },
-    {
-      element: HorizVarSizeGlyphs.Bar,
-      position: { x: 150, y: 0 },
-      length: 4 * lineWidth
-  },
-
-] }*/
+  inputJson = physBeaming;
 
   inputText: string;
 
@@ -134,22 +61,44 @@ export class DemoComponent implements OnInit {
       ]
     },
     {
-        absTime: Time.newAbsolute(1, 1),
-        ties: [
-          { position: -5, direction: NoteDirection.Up },
-          { position: -3, direction: NoteDirection.Up },
-          { position: 0, direction: NoteDirection.Down }
-        ],
+      absTime: Time.newAbsolute(1, 1),
+
+      beaming: {
+        beams: [{ fromIdx: 0, toIndex: 1 }],
+        noteRefs: [
+          {absTime: Time.newAbsolute(1, 1), uniq: '0-0-1'},
+          {absTime: Time.newAbsolute(9, 8), uniq: '0-0-2'}
+        ]
+       },
+      notes: [
+        {
+            positions: [-4, -2, 1],
+            noteType: NoteType.NQuarter,
+            direction: NoteDirection.Up,
+            flagType: FlagType.Beam,
+            uniq: '0-0-1'
+        },
+      ]
+    },
+    {
+        absTime: Time.newAbsolute(9, 8),
         accidentals: [{
           position: -3,
           alternation: 1,
           displacement: 0
         }],
+          ties: [
+          { position: -5, direction: NoteDirection.Up },
+          { position: -3, direction: NoteDirection.Up },
+          { position: 0, direction: NoteDirection.Down }
+        ],
         notes: [
         {
             positions: [-5, -3, 0],
             noteType: NoteType.NQuarter,
-            direction: NoteDirection.Up
+            direction: NoteDirection.Up,
+            flagType: FlagType.Beam,
+            uniq: '0-0-2'
         },
       ]
     },

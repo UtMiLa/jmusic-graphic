@@ -24,6 +24,8 @@ export class ShowModelComponent implements OnInit {
     this.logicalModel = {
       staves: value.staves.map(staff => staffModelToViewModel(staff))
      };
+     //console.log(this.logicalModel);
+
   }
 
   logicalModel: ScoreViewModel;
