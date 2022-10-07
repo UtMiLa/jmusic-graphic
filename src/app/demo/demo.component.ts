@@ -1,3 +1,4 @@
+import { beamModel } from './../tests/beaming';
 import { physBeaming } from './../tests/physical-beaming';
 import { physBasics } from './../tests/physical-basics';
 import { koral41 } from './../tests/koral41';
@@ -31,7 +32,7 @@ export class DemoComponent implements OnInit {
   }
 
 
-  scoreModelChords = accidentalTest;
+  scoreModelChords = beamModel;
 
   scoreModel = koral41;
 
@@ -63,13 +64,13 @@ export class DemoComponent implements OnInit {
     {
       absTime: Time.newAbsolute(1, 1),
 
-      beaming: {
-        beams: [{ fromIdx: 0, toIndex: 1 }],
+      beamings: [{
+        beams: [{ fromIdx: 0, toIndex: 1, level: 0 }],
         noteRefs: [
           {absTime: Time.newAbsolute(1, 1), uniq: '0-0-1'},
           {absTime: Time.newAbsolute(9, 8), uniq: '0-0-2'}
         ]
-       },
+       }],
       notes: [
         {
             positions: [-4, -2, 1],
