@@ -85,7 +85,7 @@ export class DemoComponent implements OnInit {
         absTime: Time.newAbsolute(9, 8),
         accidentals: [{
           position: -3,
-          alternation: 1,
+          alteration: 1,
           displacement: 0
         }],
           ties: [
