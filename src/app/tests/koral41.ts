@@ -16,7 +16,7 @@ export const koral41 = {
              {
              noteDirection: NoteDirection.Down,
              content: {
-             elements: "ees'8 ees'4. d'8 r8 bes'8 ees'4 aes'8 g'4 ees'8 f'8 c'8 d'8 ees'4 cis'8 c'4 cis'8 c'4 c'8 bes2. bes4.~ bes4"
+             elements: "ees'8 ees'4. d'8 r8 bes'8 ees'4 aes'8 g'4 ees'8 f'8 c'8 d'8 ees'4 des'8 c'4 des'8 c'4 c'8 bes2. bes4.~ bes4"
              //'c\'8 c\'4 c\'8 c\'8 c\'4 c\'4 <c\' d\'>4 e\'2.. e\'\'8 <b\' d\'\'>64 <a\' c\'\'>32 <g\' b\'>16'
          }},
          ]
