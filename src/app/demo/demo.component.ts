@@ -1,3 +1,4 @@
+import { stateChanges } from './../tests/state-changes';
 import { beamModel } from './../tests/beaming';
 import { physBeaming } from './../tests/physical-beaming';
 import { physBasics } from './../tests/physical-basics';
@@ -34,7 +35,7 @@ export class DemoComponent implements OnInit {
 
   scoreModelChords = beamModel;
 
-  scoreModel = koral41;
+  scoreModel = stateChanges;
 
   inputJson = physBeaming;
 

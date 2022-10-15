@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ScoreDef, StaffDef } from '../../../../jmusic-model/src/model';
-import { staffModelToViewModel, ScoreViewModel, scoreModelToViewModel } from '../../../../jmusic-model/src/logical-view';
+import { ScoreViewModel, scoreModelToViewModel } from '../../../../jmusic-model/src/logical-view';
 import { TimeMap } from '../../../../jmusic-model/src/tools/time-map';
 
 @Component({
@@ -26,6 +26,10 @@ export class ShowModelComponent implements OnInit {
       staves: value.staves.map(staff => staffModelToViewModel(staff, new TimeMap()))
      };*/
      //console.log(this.logicalModel);
+
+    //this.logicalModel =  scoreModelToViewModel({staves: value.staves});
+    //console.log(this.logicalModel);
+
 
   }
 
