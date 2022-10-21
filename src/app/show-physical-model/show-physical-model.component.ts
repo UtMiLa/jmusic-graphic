@@ -35,7 +35,10 @@ export class ShowPhysicalModelComponent implements OnInit {
 
   ngAfterViewInit() {
     //console.log(this.scoreCanvas);
-    this.render();
+    setTimeout(() => { // otherwise does not load fint in Chrome
+      this.render();
+    }, 10);
+
   }
 
   get canvasHeight(): number {
