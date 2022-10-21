@@ -1,4 +1,4 @@
-import { NoteType, NoteDirection, StaffDef, ClefType, Time, Sequence } from '../../../../jmusic-model/src/model';
+import { NoteType, NoteDirection, StaffDef, ClefType, Time, SimpleSequence } from '../../../../jmusic-model/src/model';
 
 
 
@@ -16,7 +16,7 @@ export const accidentalTest = {
          voices:[
            {
              noteDirection: NoteDirection.Up,
-             content: new Sequence(chord1
+             content: new SimpleSequence(chord1
               //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
            )
           }
@@ -29,7 +29,7 @@ export const accidentalTest = {
       voices:[
         {
           noteDirection: NoteDirection.Up,
-          content: new Sequence(chord2
+          content: new SimpleSequence(chord2
            //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
         )
        }
@@ -42,7 +42,7 @@ export const accidentalTest = {
     voices:[
       {
         noteDirection: NoteDirection.Up,
-        content: new Sequence(chord3
+        content: new SimpleSequence(chord3
          //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
       )
      }

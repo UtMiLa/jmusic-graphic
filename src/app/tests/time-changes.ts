@@ -1,4 +1,4 @@
-import { NoteType, NoteDirection, StaffDef, ClefType, Time, Sequence } from '../../../../jmusic-model/src/model';
+import { NoteType, NoteDirection, StaffDef, ClefType, Time, SimpleSequence } from '../../../../jmusic-model/src/model';
 
 
 export const meterModel = {
@@ -9,7 +9,7 @@ export const meterModel = {
          voices:[
            {
              noteDirection: NoteDirection.Up,
-             content: new Sequence("c'8 c'8 c'8 c'8 c'8 c'8 c'8 c'8 \\meter 6/8 c'8 c'8 c'8 c'8 c'8 c'8 \\meter 3/4 c'8 c'8 c'8 c'8 c'8 c'8" //
+             content: new SimpleSequence("c'8 c'8 c'8 c'8 c'8 c'8 c'8 c'8 \\meter 6/8 c'8 c'8 c'8 c'8 c'8 c'8 \\meter 3/4 c'8 c'8 c'8 c'8 c'8 c'8" //
            )},
          ]
      } as StaffDef,
