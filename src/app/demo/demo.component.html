@@ -2,16 +2,23 @@
 <div>
 <input type="number" [(ngModel)]="scoreModel.staves[0].initialMeter.count" (change)="updateModelView()"/>
 <input type="number" [(ngModel)]="scoreModel.staves[0].initialMeter.value" (change)="updateModelView()"/>
-<textarea [(ngModel)]="scoreModel.staves[0].voices[0].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
-<textarea [(ngModel)]="scoreModel.staves[0].voices[1].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
-<textarea [(ngModel)]="scoreModel.staves[1].voices[0].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
-<textarea [(ngModel)]="scoreModel.staves[1].voices[1].content.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+<!--<textarea [(ngModel)]="scoreModel.staves[0].voices[0].content.def.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+<textarea [(ngModel)]="scoreModel.staves[0].voices[1].content.def.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+<textarea [(ngModel)]="scoreModel.staves[1].voices[0].content.def.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+<textarea [(ngModel)]="scoreModel.staves[1].voices[1].content.def.elements" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+-->
+<div *ngFor="let staff of scoreModel.staves">
+  <span *ngFor="let voice of staff.voices">
+
+    <textarea [(ngModel)]="voice.content.def" name="voice1" cols="50" rows="5" (change)="updateModelView()"></textarea>
+  </span>
+</div>
 </div>
 <app-show-model [model]="scoreModel"></app-show-model>
 
 <app-show-model [model]="scoreModelChords"></app-show-model>
 
-<app-show-logical-model [model]="logicalModel"></app-show-logical-model>
+<app-show-logical-model [model]="logicalModel" [cursor]="cursor"></app-show-logical-model>
 
 <h3>Todo for at lave simple koraler:</h3>
 <ul>

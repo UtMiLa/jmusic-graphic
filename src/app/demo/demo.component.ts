@@ -1,3 +1,4 @@
+import { meterModel } from './../tests/time-changes';
 import { stateChanges } from './../tests/state-changes';
 import { beamModel } from './../tests/beaming';
 import { physBeaming } from './../tests/physical-beaming';
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { HorizVarSizeGlyphs, VertVarSizeGlyphs } from '../../../../jmusic-model/src/physical-view';
 import { FlagType, ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
 import { NoteType, NoteDirection, StaffDef, ClefType, Time } from '../../../../jmusic-model/src/model';
+import { Cursor } from '../../../../jmusic-model/src/physical-view/physical/cursor';
 
 
 const lineWidth = 5;
@@ -32,8 +34,9 @@ export class DemoComponent implements OnInit {
     }
   }
 
+  cursor: Cursor = { absTime: Time.newAbsolute(1, 1), position: -1, staff: 0 };
 
-  scoreModelChords = beamModel;
+  scoreModelChords = meterModel;
 
   scoreModel = stateChanges;
 

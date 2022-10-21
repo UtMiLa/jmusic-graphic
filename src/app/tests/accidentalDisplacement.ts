@@ -1,4 +1,4 @@
-import { NoteType, NoteDirection, StaffDef, ClefType, Time } from '../../../../jmusic-model/src/model';
+import { NoteType, NoteDirection, StaffDef, ClefType, Time, Sequence } from '../../../../jmusic-model/src/model';
 
 
 
@@ -16,10 +16,9 @@ export const accidentalTest = {
          voices:[
            {
              noteDirection: NoteDirection.Up,
-             content: {
-             elements: chord1
+             content: new Sequence(chord1
               //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
-           }
+           )
           }
         ]
      } as StaffDef,
@@ -30,10 +29,9 @@ export const accidentalTest = {
       voices:[
         {
           noteDirection: NoteDirection.Up,
-          content: {
-          elements: chord2
+          content: new Sequence(chord2
            //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
-        }
+        )
        }
      ]
   } as StaffDef,
@@ -44,10 +42,9 @@ export const accidentalTest = {
     voices:[
       {
         noteDirection: NoteDirection.Up,
-        content: {
-        elements: chord3
+        content: new Sequence(chord3
          //'c\'\'8 c\'\'2. e\'\'1 r4 g\'\'4'
-      }
+      )
      }
    ]
 } as StaffDef,

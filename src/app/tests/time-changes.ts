@@ -1,7 +1,7 @@
 import { NoteType, NoteDirection, StaffDef, ClefType, Time, Sequence } from '../../../../jmusic-model/src/model';
 
 
-export const beamModel = {
+export const meterModel = {
   staves: [{
          initialClef: { clefType: ClefType.G, line: -2 },
          initialMeter: { count: 4, value: 4 },
@@ -9,8 +9,7 @@ export const beamModel = {
          voices:[
            {
              noteDirection: NoteDirection.Up,
-             content: new Sequence( "c'8 d'16 e'16 f'16 g'16 a'16. b'32 a'16 g'32 f'32 g'16 f'32 e'32 d'8 c'16. c'32 \\clef C " +
-             "b8. b16 b8 r8 b8.. b32 b16 b8 b16" //
+             content: new Sequence("c'8 c'8 c'8 c'8 c'8 c'8 c'8 c'8 \\meter 6/8 c'8 c'8 c'8 c'8 c'8 c'8 \\meter 3/4 c'8 c'8 c'8 c'8 c'8 c'8" //
            )},
          ]
      } as StaffDef,

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PhysicalModel, viewModelToPhysical, StandardMetrics } from '../../../../jmusic-model/src/physical-view';
 import { ScoreViewModel } from '../../../../jmusic-model/src/logical-view';
+import { Cursor } from '../../../../jmusic-model/src/physical-view/physical/cursor';
 
 @Component({
   selector: 'app-show-logical-model',
@@ -14,6 +15,16 @@ export class ShowLogicalModelComponent implements OnInit {
   ngOnInit() {
   }
 
+  private _cursor?: Cursor;
+  @Input()
+  public get cursor(): Cursor {
+    return this._cursor;
+  }
+  public set cursor(value: Cursor) {
+    this._cursor = value;
+    this.physical = viewModelToPhysical(this._model, this.settings, this.cursor);
+  }
+
   private _model: ScoreViewModel;
   @Input()
   public get model(): ScoreViewModel {
@@ -22,7 +33,7 @@ export class ShowLogicalModelComponent implements OnInit {
   public set model(value: ScoreViewModel) {
     this._model = value;
     // if (this.scoreCanvas) this.render();
-    this.physical = viewModelToPhysical(this._model, this.settings)
+    this.physical = viewModelToPhysical(this._model, this.settings, this.cursor);
   }
 
   @Input()
