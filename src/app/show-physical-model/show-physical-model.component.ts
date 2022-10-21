@@ -47,14 +47,17 @@ export class ShowPhysicalModelComponent implements OnInit {
 
   render() {
     if (this.model) {
-      renderOnCanvas(this.model, this.scoreCanvas.nativeElement, {
-        offsetX: 10,
-        offsetY: 40,
-        scaleX: this.scale,
-        scaleY: this.scale
-      });
+      try {
+        renderOnCanvas(this.model, this.scoreCanvas.nativeElement, {
+          offsetX: 10,
+          offsetY: 40,
+          scaleX: this.scale,
+          scaleY: this.scale
+        });
 
-
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 

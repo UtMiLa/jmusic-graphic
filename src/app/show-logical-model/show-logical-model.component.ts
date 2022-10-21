@@ -22,7 +22,12 @@ export class ShowLogicalModelComponent implements OnInit {
   }
   public set cursor(value: Cursor) {
     this._cursor = value;
-    this.physical = viewModelToPhysical(this._model, this.settings, this.cursor);
+    if (this._model) try {
+      this.physical = viewModelToPhysical(this._model, this.settings, this.cursor);
+    } catch (e) {
+      console.log(e);
+      this._cursor = undefined;
+    }
   }
 
   private _model: ScoreViewModel;
@@ -33,7 +38,12 @@ export class ShowLogicalModelComponent implements OnInit {
   public set model(value: ScoreViewModel) {
     this._model = value;
     // if (this.scoreCanvas) this.render();
-    this.physical = viewModelToPhysical(this._model, this.settings, this.cursor);
+    if (this._model) try {
+      this.physical = viewModelToPhysical(this._model, this.settings, this.cursor);
+    } catch (e) {
+      console.log(e);
+      this._model = undefined;
+    }
   }
 
   @Input()

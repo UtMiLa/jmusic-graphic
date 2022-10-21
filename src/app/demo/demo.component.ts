@@ -4,6 +4,7 @@ import { beamModel } from './../tests/beaming';
 import { physBeaming } from './../tests/physical-beaming';
 import { physBasics } from './../tests/physical-basics';
 import { koral41 } from './../tests/koral41';
+import { tuplets } from './../tests/tuplets';
 import { accidentalTest } from './../tests/accidentalDisplacement';
 import { Component, OnInit } from '@angular/core';
 import { HorizVarSizeGlyphs, VertVarSizeGlyphs } from '../../../../jmusic-model/src/physical-view';
@@ -38,7 +39,7 @@ export class DemoComponent implements OnInit {
 
   scoreModelChords = meterModel;
 
-  scoreModel = stateChanges;
+  scoreModel = tuplets;
 
   inputJson = physBeaming;
 

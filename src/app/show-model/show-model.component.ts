@@ -22,8 +22,13 @@ export class ShowModelComponent implements OnInit {
   }
   public set model(value: ScoreDef) {
     this._model = value;
-    this.logicalModel = scoreModelToViewModel(value);/*{
-      staves: value.staves.map(staff => staffModelToViewModel(staff, new TimeMap()))
+    if (value) try {
+      this.logicalModel = scoreModelToViewModel(value);
+    } catch (e) {
+      console.error(e);
+      this._model = undefined;
+    }
+     /*{ staves: value.staves.map(staff => staffModelToViewModel(staff, new TimeMap()))
      };*/
      //console.log(this.logicalModel);
 
