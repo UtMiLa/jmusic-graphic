@@ -42,7 +42,7 @@ export class ShowPhysicalModelComponent implements OnInit {
   }
 
   get canvasHeight(): number {
-    return 70 * this.scale * this.staffCount;
+    return 85 * this.scale * this.staffCount;
   }
 
   render() {

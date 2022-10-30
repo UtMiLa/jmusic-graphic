@@ -40,6 +40,8 @@ export class ShowLogicalModelComponent implements OnInit {
     // if (this.scoreCanvas) this.render();
     if (this._model) try {
       this.physical = viewModelToPhysical(this._model, this.settings, this.cursor);
+      console.log('model', this._model, this.physical);
+
     } catch (e) {
       console.log(e);
       this._model = undefined;
